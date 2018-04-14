@@ -19,13 +19,22 @@ var quotes = [
     quote: "You only live once, but if you do it right, once is enough.",
     author: "Mae West"
   },
-  
 ]
 
 $(document).ready(function() {
-    $(".btn").click(function(){
-       
-   var num = Math.floor(Math.random() * 5) + 1;   $(".quote").text(quotes[num].quote);
+   var num = Math.floor(Math.random() * 5) + 1;  
+    $("#new").click(function(){
+       $(".quote").text(quotes[num].quote);
    $(".author").text(quotes[num].author);
     }); 
+ $('#tweet').click(function() {
+     var url = 'https://twitter.com/intent/tweet?hashtags= FreeCodeCamp&text=';
+   var quoten = quotes[num].quote;
+   var auth = quotes[num].author
+   tweet(url, quoten, auth);
+ });
 });
+
+function tweet(url, quoten, auth) {
+window.open(url   + encodeURIComponent(quoten) + " - " + auth)
+};
