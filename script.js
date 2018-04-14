@@ -20,14 +20,16 @@ var quotes = [
     author: "Mae West"
   },
 ]
-
+ var num = Math.floor(Math.random() * 5) + 1; 
 $(document).ready(function() {
-   var num = Math.floor(Math.random() * 5) + 1;  
+ 
     $("#new").click(function(){
-       $(".quote").text(quotes[num].quote);
-   $(".author").text(quotes[num].author);
+num = Math.floor(Math.random() * 5) + 1;   $(".quote").text(quotes[num].quote);
+$(".author").text(quotes[num].author); 
+    
     }); 
  $('#tweet').click(function() {
+   console.log(num);
      var url = 'https://twitter.com/intent/tweet?hashtags= FreeCodeCamp&text=';
    var quoten = quotes[num].quote;
    var auth = quotes[num].author
